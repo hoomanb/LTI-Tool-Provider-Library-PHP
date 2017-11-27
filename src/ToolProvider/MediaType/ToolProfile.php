@@ -32,6 +32,7 @@ class ToolProfile
         }
         if (!empty($toolProvider->product->id)) {
             $this->product_instance->guid = $toolProvider->product->id;
+            $this->product_instance->product_info->product_family->code = $toolProvider->product->id;
         }
         if (!empty($toolProvider->product->name)) {
             $this->product_instance->product_info = new \stdClass;

@@ -32,7 +32,6 @@ class ToolProfile
         }
         if (!empty($toolProvider->product->id)) {
             $this->product_instance->guid = $toolProvider->product->id;
-            $this->product_instance->product_info->product_family->vendor->code = $toolProvider->product->id;
         }
         if (!empty($toolProvider->product->name)) {
             $this->product_instance->product_info = new \stdClass;
@@ -53,6 +52,9 @@ class ToolProfile
         }
         if (!empty($toolProvider->vendor)) {
             $this->product_instance->product_info->product_family = new \stdClass;
+            if (!empty($toolProvider->product->id)) {
+                $this->product_instance->product_info->product_family->code = $toolProvider->product->id;
+            }
             $this->product_instance->product_info->product_family->vendor = new \stdClass;
         }
         if (!empty($toolProvider->vendor->id)) {
